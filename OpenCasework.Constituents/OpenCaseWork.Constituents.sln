@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.26228.9
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCaseWork.Constituents", "OpenCaseWork.Constituents.csproj", "{A744B4E3-6E95-40CE-AB2A-4BD00F655EB6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OpenCaseWork.Core", "..\OpenCaseWork.Core\OpenCaseWork.Core.csproj", "{B9EF047E-97AB-4109-9C92-804AFA5021BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A744B4E3-6E95-40CE-AB2A-4BD00F655EB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A744B4E3-6E95-40CE-AB2A-4BD00F655EB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A744B4E3-6E95-40CE-AB2A-4BD00F655EB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A744B4E3-6E95-40CE-AB2A-4BD00F655EB6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9EF047E-97AB-4109-9C92-804AFA5021BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9EF047E-97AB-4109-9C92-804AFA5021BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9EF047E-97AB-4109-9C92-804AFA5021BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9EF047E-97AB-4109-9C92-804AFA5021BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
