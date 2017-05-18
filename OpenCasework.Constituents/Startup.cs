@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using OpenCaseWork.Core.Hosting;
 
-namespace OpenCaseWork.Constituents2
+namespace OpenCaseWork.Constituents
 {
     public class Startup
     {

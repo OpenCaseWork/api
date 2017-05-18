@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 
-namespace OpenCaseWork.Constituents2
+namespace OpenCaseWork.Constituents
 {
     public class Program
     {
