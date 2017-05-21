@@ -26,7 +26,7 @@ namespace OpenCaseWork.Constituents.Data
 
         public async Task<List<Title>> Titles()
         {
-            var query = from u in _context.Titles
+            var query = from u in _context.Titles orderby u.TitleText
                         select u;
            
             return await query.ToListAsync();
@@ -34,7 +34,7 @@ namespace OpenCaseWork.Constituents.Data
 
         public async Task<List<Suffix>> Suffixes()
         {
-            var query = from u in _context.Suffixes
+            var query = from u in _context.Suffixes orderby u.SuffixText
                         select u;
 
             return await query.ToListAsync();
@@ -42,7 +42,7 @@ namespace OpenCaseWork.Constituents.Data
 
         public async Task<List<City>> Cities()
         {
-            var query = from u in _context.Cities
+            var query = from u in _context.Cities orderby u.CityName
                         select u;
 
             return await query.ToListAsync();
