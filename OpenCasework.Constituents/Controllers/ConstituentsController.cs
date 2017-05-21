@@ -18,6 +18,7 @@ namespace OpenCaseWork.Constituents.Controllers
             ConstituentSearchRecord record = new ConstituentSearchRecord();
             record.Address = "89 golfview";
             record.Name = "Keith Katsma";
+            record.Id = 1;
             result.Records = new List<ConstituentSearchRecord>();
             result.Records.Add(record);
             var task = Task.FromResult(result);
@@ -32,6 +33,7 @@ namespace OpenCaseWork.Constituents.Controllers
             ConstituentSearchRecord record = new ConstituentSearchRecord();
             record.Address = "89 golfview";
             record.Name = "Keith Katsma";
+            record.Id = 1;
             result.Records = new List<ConstituentSearchRecord>();
             result.Records.Add(record);
             var task = Task.FromResult(result);
@@ -40,9 +42,17 @@ namespace OpenCaseWork.Constituents.Controllers
 
         // GET api/values/5
         [HttpGet("{id}")]
-        public string Get(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            return "value";
+            var constituent = new Constituent();
+            constituent.Address1 = "89 golfview";
+            constituent.FirstName = "Keith";
+            constituent.LastName = "Katsma";
+            constituent.CityID = 1;
+            constituent.ConstituentId = 123;
+            constituent.MiddleName = "Matthew";
+            var task = Task.FromResult(constituent);
+            return Ok(await task);
         }
 
 

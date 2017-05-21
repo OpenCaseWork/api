@@ -20,6 +20,7 @@ namespace OpenCaseWork.Constituents
                 .UseApplicationInsights()
                 .Build();
 
+
             host.Run();
         }
     }

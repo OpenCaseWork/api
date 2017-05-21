@@ -13,7 +13,7 @@ namespace OpenCaseWork.Constituents.Models
         public string LastName { get; set; }
         public string MiddleName { get; set; }
         public int SuffixID { get; set; }
-        public string Nickname { get; set; }
+        public string NickName { get; set; }
         public string Address1 { get; set; }
         public string Address2 { get; set; }
         public int CityID { get; set; }
@@ -28,19 +28,6 @@ namespace OpenCaseWork.Constituents.Models
         public int IncomeLevelId { get; set; }
         public string MaidenName { get; set; }
 
-
-        /*    
-
-
-
-Private mvarImportID As String 
-
-Private mstrExtractAddressChanged As String
-Private mvarEthnicityId As Variant
-
-Public PreferredLanguageId As Variant
-Public PrintLabel As Variant
-Public NOTES As String*/
-
+        public ConstituentDemographics Demographics { get; set; }
     }
 }
