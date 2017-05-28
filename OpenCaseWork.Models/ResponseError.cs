@@ -1,4 +1,4 @@
-﻿namespace OpenCaseWork.Core.Models
+﻿namespace OpenCaseWork.Models
 {
     public class ResponseError
     {

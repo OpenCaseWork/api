@@ -11,6 +11,7 @@ using Microsoft.AspNetCore.Cors.Infrastructure;
 using OpenCaseWork.Core.Hosting;
 using OpenCaseWork.Constituents.Data;
 using Microsoft.EntityFrameworkCore;
+using EntityFrameworkCore.GenericRepository;
 
 namespace OpenCaseWork.Constituents
 {
@@ -47,6 +48,7 @@ namespace OpenCaseWork.Constituents
 
 
             // Add application services.
+            services.Add(ServiceDescriptor.Singleton(typeof(IRepository<>), typeof(Repository<>)));
             services.AddSingleton<IDomainRepository, DomainRepository>();
         }
 

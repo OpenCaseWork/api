@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Net;
-using System.Text;
-
-namespace OpenCaseWork.Core.Models
+﻿
+namespace OpenCaseWork.Models
 {
     public class BaseResponse
     {

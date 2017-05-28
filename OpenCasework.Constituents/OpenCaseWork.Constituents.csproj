@@ -5,9 +5,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Models\**" />
+    <Content Remove="Models\**" />
+    <EmbeddedResource Remove="Models\**" />
+    <None Remove="Models\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Controllers\wwwroot\" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="EntityFrameworkCore.GenericRepository" Version="0.2.0" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.1.2" />
@@ -24,6 +32,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\OpenCaseWork.Core\OpenCaseWork.Core.csproj" />
+    <ProjectReference Include="..\OpenCaseWork.Models\OpenCaseWork.Models.csproj" />
   </ItemGroup>
 
 </Project>

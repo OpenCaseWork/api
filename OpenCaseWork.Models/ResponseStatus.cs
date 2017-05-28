@@ -1,7 +1,6 @@
-﻿
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
-namespace OpenCaseWork.Core.Models
+namespace OpenCaseWork.Models
 {
     public class ResponseStatus
     {

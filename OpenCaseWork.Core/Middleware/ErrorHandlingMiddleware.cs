@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using OpenCaseWork.Core.Exceptions;
-using OpenCaseWork.Core.Models;
+using OpenCaseWork.Models;
 
 namespace OpenCaseWork.Core.Middleware
 {

@@ -2,14 +2,15 @@
 using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OpenCaseWork.Constituents.Models
+namespace OpenCaseWork.Models.Constituents
 {
     public class Constituent: AuditFields
     {
         [Column("constituent_id")]
         public long ConstituentId { get; set; }
         [Column("title_id")]
-        public int TitleID { get; set; }
+        public int TitleId { get; set; }
+        public string Title { get; set; }
         [Column("first_name")]
         public string FirstName { get; set; }
         [Column("last_name")]
@@ -17,25 +18,26 @@ namespace OpenCaseWork.Constituents.Models
         [Column("middle_name")]
         public string MiddleName { get; set; }
         [Column("suffix_id")]
-        public int SuffixID { get; set; }
+        public int SuffixId { get; set; }
+        public string Suffix { get; set; }
         public string NickName { get; set; }
         [Column("addr1")]
         public string Address1 { get; set; }
         [Column("addr2")]
         public string Address2 { get; set; }
         [Column("city_id")]
-        public int CityID { get; set; }
+        public int CityId { get; set; }
         [Column("township_id")]
-        public int TownshipID { get; set; }
+        public int TownshipId { get; set; }
         [Column("state_cd")]
         public string StateCd { get; set; }
         [Column("zip_code_id")]
-        public int PostalCodeID { get; set; }
+        public int PostalCodeId { get; set; }
         [Column("zip_code")]
         public string PostalCode { get; set; }
 
         [Column("federal_id")]
-        public string FederalID { get; set; }
+        public string FederalId { get; set; }
         [Column("birth_date")]
         public DateTime BirthDate { get; set; }
         [Column("gender")]
@@ -63,7 +65,6 @@ namespace OpenCaseWork.Constituents.Models
         public bool FemaleHeadedHousehold { get; set; }
         [Column("pet")]
         public bool Pet { get; set; }
-
 
     }
 }

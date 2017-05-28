@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 
-namespace OpenCaseWork.Constituents.Models.Domains
+namespace OpenCaseWork.Models.Constituents.Domains
 {
     [Table("city")]
     public class City

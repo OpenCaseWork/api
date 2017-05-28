@@ -1,7 +1,7 @@
-﻿using OpenCaseWork.Core.Models;
+﻿using OpenCaseWork.Models;
 using System.Collections.Generic;
 
-namespace OpenCaseWork.Constituents.Models
+namespace OpenCaseWork.Constituents.Models.Search
 {
     public class ConstituentSearchResponse: BaseResponse
     {

@@ -1,9 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
 
-namespace OpenCaseWork.Constituents.Models.Domains
+namespace OpenCaseWork.Models.Constituents.Domains
 {
     public class ConstituentDomains
     {                

@@ -1,7 +1,54 @@
 ﻿export class ConstituentDomains {
-    public titles: Title[];
-    public suffixes: Suffix[];
     public cities: City[];
+    public contactTypes: ContactType[];
+    public postalCodes: PostalCode[];
+    public states: State[];
+    public suffixes: Suffix[];
+    public titles: Title[];
+    public townships: Township[];
+}
+/*[Table("city")]*/
+export class City {
+    /*[Column("CITY_ID")]*/
+    public cityId: number;
+    /*[Column("CITY_CODE")]*/
+    public cityCode: number;
+    /*[Column("city")]*/
+    public cityName: string;
+}
+
+/*[Table("contact_type")]*/
+export class ContactType {
+    /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+[Column("contact_type_id")]*/
+    public id: number;
+    /*[Column("description")]*/
+    public description: string;
+    /*[Column("sequence")]*/
+    public sequence: number;
+    /*[Column("is_phone")]*/
+    public isPhone: boolean;
+}
+
+/*[Table("zip_code")]*/
+export class PostalCode {
+    /*[DatabaseGenerated(DatabaseGeneratedOption.Identity)]
+[Column("zip_code_id")]*/
+    public id: number;
+    /*[Column("zip_code")]*/
+    public townshipCode: number;
+    /*[Column("state")]*/
+    public state: string;
+}
+
+/*[Table("state")]*/
+export class State {
+    /*[Column("state_id")]*/
+    public id: number;
+    /*[Column("state")]*/
+    public stateCd: string;
+    /*[Column("state_name")]*/
+    public stateName: string;
 }
 
 /*[Table("suffix")]*/
@@ -19,12 +66,13 @@ export class Title {
     public titleText: string;
 }
 
-/*[Table("city")]*/
-export class City {
-    /*[Column("CITY_ID")]*/
-    public cityId: number;
-    /*[Column("CITY_CODE")]*/
-    public cityCode: number;
-    /*[Column("city")]*/
-    public cityName: string;
+/*[Table("township")]*/
+export class Township {
+    /*[Column("township_id")]*/
+    public id: number;
+    /*[Column("township_code")]*/
+    public townshipCode: number;
+    /*[Column("township_name")]*/
+    public townshipName: string;
 }
+

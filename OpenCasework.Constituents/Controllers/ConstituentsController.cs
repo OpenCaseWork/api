@@ -4,6 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using OpenCaseWork.Constituents.Models;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Cors;
+using OpenCaseWork.Constituents.Models.Search;
+using OpenCaseWork.Models.Constituents;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
@@ -48,7 +50,7 @@ namespace OpenCaseWork.Constituents.Controllers
             constituent.Address1 = "89 golfview";
             constituent.FirstName = "Keith";
             constituent.LastName = "Katsma";
-            constituent.CityID = 1;
+            constituent.CityId = 1;
             constituent.ConstituentId = 123;
             constituent.MiddleName = "Matthew";
             var task = Task.FromResult(constituent);
