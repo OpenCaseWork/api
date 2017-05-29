@@ -3,6 +3,8 @@ using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using OpenCaseWork.Constituents.Data;
 using OpenCaseWork.Models.Constituents.Domains;
+using System.Linq;
+using OpenCaseWork.Models.Domains;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
@@ -52,9 +54,9 @@ namespace OpenCaseWork.Constituents.Controllers
             };
             await Task.WhenAll(taskList.ToArray());
 
-            record.Cities = taskGetCities.Result;
-            record.Suffixes = taskGetSuffix.Result;
-            record.Titles = taskGetTitles.Result;
+            record.Cities = taskGetCities.Result.Select(x => new SelectItem() { Id = x.CityId, ShortDescription = x.CityName }).ToList(); 
+            record.Suffixes = taskGetSuffix.Result.Select(x => new SelectItem() { Id = x.SuffixId, ShortDescription = x.SuffixText }).ToList();
+            record.Titles = taskGetTitles.Result.Select(x => new SelectItem() { Id = x.TitleId, ShortDescription = x.TitleText }).ToList();
             record.ContactTypes = taskGetContactTypes.Result;
             record.PostalCodes = taskPostal.Result;
             record.States = taskState.Result;

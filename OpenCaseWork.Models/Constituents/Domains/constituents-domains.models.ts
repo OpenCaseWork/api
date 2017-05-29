@@ -1,10 +1,12 @@
-﻿export class ConstituentDomains {
-  public cities: City[];
+﻿import { SelectItem } from '../../Domains/domains.models';
+
+export class ConstituentDomains {
+  public cities: SelectItem[];
   public contactTypes: ContactType[];
   public postalCodes: PostalCode[];
   public states: State[];
-  public suffixes: Suffix[];
-  public titles: Title[];
+  public suffixes: SelectItem[];
+  public titles: SelectItem[];
   public townships: Township[];
 }
 /*[Table("city")]*/
