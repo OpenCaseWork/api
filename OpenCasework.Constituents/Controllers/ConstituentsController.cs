@@ -13,7 +13,7 @@ namespace OpenCaseWork.Constituents.Controllers
     public class ConstituentsController : Controller
     {
         // GET api/values
-        [HttpPost]
+        [HttpPost("search")]
         public async Task<IActionResult> Constituents([FromBody] ConstituentSearchRequest searchFilter)
         {
             var result = new ConstituentSearchResponse();
@@ -27,7 +27,16 @@ namespace OpenCaseWork.Constituents.Controllers
             return Ok(await task);
         }
 
-        // GET api/values
+        [HttpPost]
+        public async Task<IActionResult> Constituents([FromBody] Constituent constituent)
+        {
+            if (constituent.ConstituentId == 0)
+                constituent.ConstituentId = 1;
+            var task = Task.FromResult(constituent);
+            return Ok(await task);
+        }
+
+        // Search
         [HttpGet]
         public async Task<IActionResult> Constituents()
         {

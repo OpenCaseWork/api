@@ -4,10 +4,10 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenCaseWork.Models.Constituents
 {
-    public class Constituent: AuditFields
+    public class Constituent: AuditedEntity
     {
         [Column("constituent_id")]
-        public long ConstituentId { get; set; }
+        public int ConstituentId { get; set; }
         [Column("title_id")]
         public int TitleId { get; set; }
         public string Title { get; set; }

@@ -4,7 +4,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 namespace OpenCaseWork.Models.Constituents
 {
     [Table("constituent_notes")]
-    public class ConstituentNote: AuditFields
+    public class ConstituentNote: AuditedEntity
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("constituent_note_id")]

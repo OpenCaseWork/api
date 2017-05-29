@@ -2,15 +2,12 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Threading.Tasks;
+using System.Text;
 
-namespace OpenCaseWork.Models.Constituents
+namespace OpenCaseWork.Models.Contacts
 {
-    [Table("contact")]
-    public class ConstituentContact: AuditedEntity
+    public class Contact: AuditedEntity
     {
-        [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         [Column("contact_id")]
         public int Id { get; set; }
         [Column("parent_id")]
@@ -18,13 +15,12 @@ namespace OpenCaseWork.Models.Constituents
         [Column("contact_type_id")]
         public int ContactTypeId { get; set; }
         [Column("contact_text")]
-        public string ContactValue { get; set; }
+        public string Value { get; set; }
         [Column("contact_text_2")]
-        public string ContactVelue2 { get; set; }        
+        public string Value2 { get; set; }
         [Column("contact_notes")]
         public string Notes { get; set; }
         [Column("extension")]
         public string Extension { get; set; }
-
     }
 }

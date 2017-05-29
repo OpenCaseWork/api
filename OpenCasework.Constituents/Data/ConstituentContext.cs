@@ -8,6 +8,7 @@ namespace OpenCaseWork.Constituents.Data
     {                
         public DbSet<City> Cities { get; set; }
         public DbSet<Constituent> Constituents { get; set; }
+        public DbSet<ConstituentContact> Contacts { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
         public DbSet<PostalCode> PostalCodes { get; set; }
         public DbSet<PostalCodeCity> PostalCodeCities { get; set; }
@@ -18,6 +19,12 @@ namespace OpenCaseWork.Constituents.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            /*modelBuilder.ForSqlServerHasSequence<int>("DBSequence")
+                .StartsAt(1000).IncrementsBy(1);
+            modelBuilder.Entity<Constituent>()
+               .Property(x => x.ConstituentId)
+               .HasDefaultValueSql("NEXT VALUE FOR DBSequence");*/
+        
             modelBuilder.Entity<PostalCodeCity>()
                 .HasKey(c => new { c.CityId, c.PostalCode });
         }

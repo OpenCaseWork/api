@@ -13,6 +13,10 @@ namespace OpenCaseWork.Constituents.Data
     public interface IConstituentRepository
     {
         Task<List<Constituent>> Search(ConstituentSearchRequest constituent);
+        Task<int> GetNextConstituentId();
+        Task<List<ConstituentContact>> GetContactsForConstituentId(int constituentId);
+
+
     }
 
     public class ConstituentRepository : IConstituentRepository
@@ -22,6 +26,11 @@ namespace OpenCaseWork.Constituents.Data
         public ConstituentRepository(ConstituentContext dbContext)
         {
             _context = dbContext;
+        }
+
+        public async Task<int> GetNextConstituentId()
+        {
+            return await Task.FromResult(2);
         }
 
         public async Task<List<Constituent>> Search(ConstituentSearchRequest request)
@@ -37,6 +46,15 @@ namespace OpenCaseWork.Constituents.Data
 
             if (!String.IsNullOrEmpty(request.FirstName))
                 query = query.Where(u => u.FirstName.StartsWith(request.FirstName));
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<ConstituentContact>> GetContactsForConstituentId(int constituentId)
+        {
+            var query = from u in _context.Contacts
+                        select u;
+            query = query.Where(u => u.ConstituentId.Equals(constituentId));
 
             return await query.ToListAsync();
         }

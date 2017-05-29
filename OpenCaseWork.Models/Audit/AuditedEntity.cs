@@ -1,9 +1,10 @@
-﻿using System;
+﻿using OpenCaseWork.Models.Base;
+using System;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenCaseWork.Models.Audit
 {
-    public class AuditFields
+    public class AuditedEntity: BaseEntity
     {
         [Column("created_date")]
         public DateTime CreatedDate { get; set; }
