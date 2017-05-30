@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[napis_intake_assistance] (
+    [napis_intake_assistance_id] INT          IDENTITY (1, 1) NOT NULL,
+    [napis_intake_id]            INT          NOT NULL,
+    [other]                      BIT          NULL,
+    [other_notes]                VARCHAR (50) NULL,
+    [shopping]                   BIT          NULL,
+    [shopping_notes]             VARCHAR (50) NULL,
+    [meals]                      BIT          NULL,
+    [meals_notes]                VARCHAR (50) NULL,
+    [housekeeping]               BIT          NULL,
+    [housekeeping_notes]         VARCHAR (50) NULL,
+    [laundry]                    BIT          NULL,
+    [laundry_notes]              VARCHAR (50) NULL,
+    [transportation]             BIT          NULL,
+    [transportation_notes]       VARCHAR (50) NULL,
+    [eating]                     BIT          NULL,
+    [eating_notes]               VARCHAR (50) NULL,
+    [toilet]                     BIT          NULL,
+    [toilet_notes]               VARCHAR (50) NULL,
+    [bathing]                    BIT          NULL,
+    [bathing_notes]              VARCHAR (50) NULL,
+    [personal_care]              BIT          NULL,
+    [personal_care_notes]        VARCHAR (50) NULL,
+    [tenant_id]                  INT          NULL,
+    CONSTRAINT [PK_napis_intake_assistance] PRIMARY KEY CLUSTERED ([napis_intake_assistance_id] ASC)
+);
+

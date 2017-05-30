@@ -1,0 +1,7 @@
+﻿CREATE TABLE [dbo].[ZIP_CODE] (
+    [zip_code_id] INT           IDENTITY (1, 1) NOT NULL,
+    [ZIP_CODE]    NVARCHAR (50) NOT NULL,
+    [STATE]       NVARCHAR (50) NULL,
+    CONSTRAINT [PK__ZIP_CODE__2BC97F7C] PRIMARY KEY NONCLUSTERED ([zip_code_id] ASC) WITH (FILLFACTOR = 90)
+);
+

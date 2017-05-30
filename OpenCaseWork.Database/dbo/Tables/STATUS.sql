@@ -1,0 +1,8 @@
+﻿CREATE TABLE [dbo].[STATUS] (
+    [status_id]   INT          IDENTITY (1, 1) NOT NULL,
+    [STATUS_CODE] CHAR (1)     NOT NULL,
+    [STATUS_TYPE] VARCHAR (50) NOT NULL,
+    [tenant_id]   INT          NULL,
+    CONSTRAINT [PK__STATUS__43A1090D] PRIMARY KEY NONCLUSTERED ([status_id] ASC) WITH (FILLFACTOR = 90)
+);
+

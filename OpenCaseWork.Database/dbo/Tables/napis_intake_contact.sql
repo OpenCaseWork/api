@@ -1,0 +1,26 @@
+﻿CREATE TABLE [dbo].[napis_intake_contact] (
+    [napis_intake_contact_id]       INT          IDENTITY (1, 1) NOT NULL,
+    [napis_intake_id]               INT          NULL,
+    [contact1_name]                 VARCHAR (50) NULL,
+    [contact1_phone1]               VARCHAR (10) NULL,
+    [contact1_phone2]               VARCHAR (10) NULL,
+    [contact1_relationship_type_id] INT          NULL,
+    [contact1_email]                VARCHAR (50) NULL,
+    [contact2_name]                 VARCHAR (50) NULL,
+    [contact2_phone1]               VARCHAR (10) NULL,
+    [contact2_phone2]               VARCHAR (10) NULL,
+    [contact2_relationship_type_id] INT          NULL,
+    [contact2_email]                VARCHAR (50) NULL,
+    [contact3_name]                 VARCHAR (50) NULL,
+    [contact3_phone1]               VARCHAR (10) NULL,
+    [contact3_phone2]               VARCHAR (10) NULL,
+    [contact3_relationship_type_id] INT          NULL,
+    [contact3_email]                VARCHAR (50) NULL,
+    [referral_reason_id]            INT          NULL,
+    [contact_person_id]             INT          NULL,
+    [lives_with]                    VARCHAR (50) NULL,
+    [agency]                        VARCHAR (50) NULL,
+    [tenant_id]                     INT          NULL,
+    CONSTRAINT [PK_napis_intake_contact] PRIMARY KEY CLUSTERED ([napis_intake_contact_id] ASC)
+);
+

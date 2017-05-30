@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[respite_check_request] (
+    [respite_check_request_id] INT           IDENTITY (1, 1) NOT NULL,
+    [respite_event_id]         INT           NULL,
+    [request_date]             DATETIME      NULL,
+    [request_amount]           FLOAT (53)    NULL,
+    [payee]                    VARCHAR (100) NULL,
+    [expense_category]         VARCHAR (20)  NULL,
+    [create_by]                CHAR (20)     NULL,
+    [create_date]              DATETIME      NULL,
+    [status]                   INT           NULL,
+    [department]               VARCHAR (50)  NULL,
+    [functional_category]      VARCHAR (50)  NULL,
+    [program]                  VARCHAR (50)  NULL,
+    [capital_asset]            VARCHAR (50)  NULL,
+    [prepaid_expense]          VARCHAR (50)  NULL,
+    [revenue_account]          VARCHAR (50)  NULL,
+    [balance_sheet_account]    VARCHAR (50)  NULL,
+    [reason]                   VARCHAR (500) NULL,
+    [approved_by]              CHAR (20)     NULL,
+    [approved_date]            DATETIME      NULL,
+    [deliver_check_to]         VARCHAR (100) NULL,
+    [invoice]                  VARCHAR (50)  NULL,
+    [check_number]             VARCHAR (30)  NULL,
+    [tenant_id]                INT           NULL,
+    CONSTRAINT [PK_respite_check_request] PRIMARY KEY NONCLUSTERED ([respite_check_request_id] ASC) WITH (FILLFACTOR = 90)
+);
+

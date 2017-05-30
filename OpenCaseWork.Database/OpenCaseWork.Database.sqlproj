@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <Name>OpenCaseWork.Database</Name>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectVersion>4.1</ProjectVersion>
+    <ProjectGuid>{6b22dec0-d7d6-445f-afdf-a223be53fa15}</ProjectGuid>
+    <DSP>Microsoft.Data.Tools.Schema.Sql.Sql130DatabaseSchemaProvider</DSP>
+    <OutputType>Database</OutputType>
+    <RootPath>
+    </RootPath>
+    <RootNamespace>OpenCaseWork.Database</RootNamespace>
+    <AssemblyName>OpenCaseWork.Database</AssemblyName>
+    <ModelCollation>1033,CI</ModelCollation>
+    <DefaultFileStructure>BySchemaAndSchemaType</DefaultFileStructure>
+    <DeployToDatabase>True</DeployToDatabase>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetLanguage>CS</TargetLanguage>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <SqlServerVerification>False</SqlServerVerification>
+    <IncludeCompositeObjects>True</IncludeCompositeObjects>
+    <TargetDatabaseSet>True</TargetDatabaseSet>
+    <DefaultCollation>SQL_Latin1_General_CP1_CI_AS</DefaultCollation>
+    <DefaultFilegroup>PRIMARY</DefaultFilegroup>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>False</TreatWarningsAsErrors>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <BuildScriptName>$(MSBuildProjectName).sql</BuildScriptName>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">11.0</VisualStudioVersion>
+    <!-- Default to the v11.0 targets path if the targets file for the current VS version is not found -->
+    <SSDTExists Condition="Exists('$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets')">True</SSDTExists>
+    <VisualStudioVersion Condition="'$(SSDTExists)' == ''">11.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Condition="'$(SQLDBExtensionsRefPath)' != ''" Project="$(SQLDBExtensionsRefPath)\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <Import Condition="'$(SQLDBExtensionsRefPath)' == ''" Project="$(MSBuildExtensionsPath)\Microsoft\VisualStudio\v$(VisualStudioVersion)\SSDT\Microsoft.Data.Tools.Schema.SqlTasks.targets" />
+  <ItemGroup>
+    <Folder Include="Properties" />
+    <Folder Include="dbo\" />
+    <Folder Include="dbo\Tables\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Build Include="dbo\Tables\constituent_tracking.sql" />
+    <Build Include="dbo\Tables\red_tape_cutter_service_domain.sql" />
+    <Build Include="dbo\Tables\red_tape_cutter_service_domain_xref.sql" />
+    <Build Include="dbo\Tables\constituent_tracking_program.sql" />
+    <Build Include="dbo\Tables\respite_check_request.sql" />
+    <Build Include="dbo\Tables\CONSTITUENT_TYPE.sql" />
+    <Build Include="dbo\Tables\respite_event.sql" />
+    <Build Include="dbo\Tables\contact.sql" />
+    <Build Include="dbo\Tables\respite_event_day.sql" />
+    <Build Include="dbo\Tables\CONTACT_EVENT.sql" />
+    <Build Include="dbo\Tables\respite_event_gap_fill.sql" />
+    <Build Include="dbo\Tables\CONTACT_EVENT_AUDIT.sql" />
+    <Build Include="dbo\Tables\respite_statement.sql" />
+    <Build Include="dbo\Tables\contact_event_billing_status.sql" />
+    <Build Include="dbo\Tables\security_group.sql" />
+    <Build Include="dbo\Tables\CONTACT_EVENT_ENTRY.sql" />
+    <Build Include="dbo\Tables\security_group_security_right.sql" />
+    <Build Include="dbo\Tables\Contact_Event_Entry_Date.sql" />
+    <Build Include="dbo\Tables\security_right.sql" />
+    <Build Include="dbo\Tables\CONTACT_EVENT_ENTRY_WEEK.sql" />
+    <Build Include="dbo\Tables\service_code_types.sql" />
+    <Build Include="dbo\Tables\SERVICE_CODES.sql" />
+    <Build Include="dbo\Tables\contact_event_napis_intake.sql" />
+    <Build Include="dbo\Tables\service_type_group.sql" />
+    <Build Include="dbo\Tables\contact_event_note.sql" />
+    <Build Include="dbo\Tables\service_type_group_relations.sql" />
+    <Build Include="dbo\Tables\CONTACT_EVENT_OVERRIDE.sql" />
+    <Build Include="dbo\Tables\contact_event_service_type.sql" />
+    <Build Include="dbo\Tables\service_types.sql" />
+    <Build Include="dbo\Tables\STATUS.sql" />
+    <Build Include="dbo\Tables\fiscal_year.sql" />
+    <Build Include="dbo\Tables\suffix.sql" />
+    <Build Include="dbo\Tables\fiscal_year_location_limit.sql" />
+    <Build Include="dbo\Tables\titles.sql" />
+    <Build Include="dbo\Tables\gap_fill_check_request.sql" />
+    <Build Include="dbo\Tables\survey_answer.sql" />
+    <Build Include="dbo\Tables\gap_fill_statement.sql" />
+    <Build Include="dbo\Tables\tracking_abuse.sql" />
+    <Build Include="dbo\Tables\ads_survey_mailing.sql" />
+    <Build Include="dbo\Tables\geriatric_case.sql" />
+    <Build Include="dbo\Tables\tracking_case_management.sql" />
+    <Build Include="dbo\Tables\geriatric_case_billing_detail.sql" />
+    <Build Include="dbo\Tables\ads_survey_question.sql" />
+    <Build Include="dbo\Tables\geriatric_case_billing_item.sql" />
+    <Build Include="dbo\Tables\tracking_ccp_adult_daycare.sql" />
+    <Build Include="dbo\Tables\how_activity.sql" />
+    <Build Include="dbo\Tables\ads_survey_response.sql" />
+    <Build Include="dbo\Tables\tracking_ccp_homemaker.sql" />
+    <Build Include="dbo\Tables\how_activity_billing.sql" />
+    <Build Include="dbo\Tables\ads_survey_response_type.sql" />
+    <Build Include="dbo\Tables\tracking_chore.sql" />
+    <Build Include="dbo\Tables\how_activity_billing_approval.sql" />
+    <Build Include="dbo\Tables\ads_survey_type.sql" />
+    <Build Include="dbo\Tables\tracking_friendly_visiting.sql" />
+    <Build Include="dbo\Tables\how_activity_billing_fee.sql" />
+    <Build Include="dbo\Tables\ads_survey_type_section.sql" />
+    <Build Include="dbo\Tables\tracking_guardianship_estate.sql" />
+    <Build Include="dbo\Tables\how_activity_billing_fee_type.sql" />
+    <Build Include="dbo\Tables\age_options_category.sql" />
+    <Build Include="dbo\Tables\how_activity_participation.sql" />
+    <Build Include="dbo\Tables\tracking_guardianship_person.sql" />
+    <Build Include="dbo\Tables\agency.sql" />
+    <Build Include="dbo\Tables\how_activity_pay_source.sql" />
+    <Build Include="dbo\Tables\tracking_guardianship_type.sql" />
+    <Build Include="dbo\Tables\agency_rate.sql" />
+    <Build Include="dbo\Tables\how_activity_pay_source_program.sql" />
+    <Build Include="dbo\Tables\tracking_housing.sql" />
+    <Build Include="dbo\Tables\blue_sheet_dates.sql" />
+    <Build Include="dbo\Tables\how_activity_program.sql" />
+    <Build Include="dbo\Tables\tracking_meals_non_titleIII.sql" />
+    <Build Include="dbo\Tables\caregiver_relationship_type.sql" />
+    <Build Include="dbo\Tables\how_billing_month.sql" />
+    <Build Include="dbo\Tables\tracking_meals_titleIII.sql" />
+    <Build Include="dbo\Tables\cfm_adl_value.sql" />
+    <Build Include="dbo\Tables\how_case.sql" />
+    <Build Include="dbo\Tables\tracking_money_management.sql" />
+    <Build Include="dbo\Tables\how_case_day.sql" />
+    <Build Include="dbo\Tables\cfm_audit.sql" />
+    <Build Include="dbo\Tables\tracking_preferred_language.sql" />
+    <Build Include="dbo\Tables\how_case_month.sql" />
+    <Build Include="dbo\Tables\cfm_ccp_service.sql" />
+    <Build Include="dbo\Tables\tracking_support_group.sql" />
+    <Build Include="dbo\Tables\how_credit.sql" />
+    <Build Include="dbo\Tables\cfm_field_value.sql" />
+    <Build Include="dbo\Tables\tracking_translation_need.sql" />
+    <Build Include="dbo\Tables\how_credit_type.sql" />
+    <Build Include="dbo\Tables\cfm_file.sql" />
+    <Build Include="dbo\Tables\how_fee.sql" />
+    <Build Include="dbo\Tables\cfm_file_notes.sql" />
+    <Build Include="dbo\Tables\how_fee_type.sql" />
+    <Build Include="dbo\Tables\cfm_impairment_value.sql" />
+    <Build Include="dbo\Tables\how_reason_for_discharge.sql" />
+    <Build Include="dbo\Tables\income_level.sql" />
+    <Build Include="dbo\Tables\cfm_impairments.sql" />
+    <Build Include="dbo\Tables\income_level_category.sql" />
+    <Build Include="dbo\Tables\cfm_log.sql" />
+    <Build Include="dbo\Tables\income_level_settings.sql" />
+    <Build Include="dbo\Tables\cfm_next_year_holding.sql" />
+    <Build Include="dbo\Tables\income_level_type.sql" />
+    <Build Include="dbo\Tables\cfm_service.sql" />
+    <Build Include="dbo\Tables\cfm_service_validation.sql" />
+    <Build Include="dbo\Tables\location.sql" />
+    <Build Include="dbo\Tables\child.sql" />
+    <Build Include="dbo\Tables\LogMessages.sql" />
+    <Build Include="dbo\Tables\city.sql" />
+    <Build Include="dbo\Tables\MARITAL_STATUS.sql" />
+    <Build Include="dbo\Tables\city_code.sql" />
+    <Build Include="dbo\Tables\mco_agency.sql" />
+    <Build Include="dbo\Tables\mco_request.sql" />
+    <Build Include="dbo\Tables\mco_vendor.sql" />
+    <Build Include="dbo\Tables\client_questionaire.sql" />
+    <Build Include="dbo\Tables\medicaid_type.sql" />
+    <Build Include="dbo\Tables\contact_type.sql" />
+    <Build Include="dbo\Tables\MINORITY.sql" />
+    <Build Include="dbo\Tables\client_questionaire_audit.sql" />
+    <Build Include="dbo\Tables\client_questionaire_other.sql" />
+    <Build Include="dbo\Tables\ethnicity.sql" />
+    <Build Include="dbo\Tables\napis_form.sql" />
+    <Build Include="dbo\Tables\client_questionaire_service.sql" />
+    <Build Include="dbo\Tables\STATE.sql" />
+    <Build Include="dbo\Tables\napis_group.sql" />
+    <Build Include="dbo\Tables\code.sql" />
+    <Build Include="dbo\Tables\TOWNSHIP.sql" />
+    <Build Include="dbo\Tables\napis_intake.sql" />
+    <Build Include="dbo\Tables\comm_educ_event.sql" />
+    <Build Include="dbo\Tables\ZIP_CODE.sql" />
+    <Build Include="dbo\Tables\napis_intake_assignment.sql" />
+    <Build Include="dbo\Tables\napis_intake_assistance.sql" />
+    <Build Include="dbo\Tables\comm_educ_event_service.sql" />
+    <Build Include="dbo\Tables\city_townships.sql" />
+    <Build Include="dbo\Tables\napis_intake_ccp.sql" />
+    <Build Include="dbo\Tables\comm_educ_event_time.sql" />
+    <Build Include="dbo\Tables\zip_code_cities.sql" />
+    <Build Include="dbo\Tables\napis_intake_ccp_asset_settings.sql" />
+    <Build Include="dbo\Tables\COMM_EDUC_PROVIDERS.sql" />
+    <Build Include="dbo\Tables\constituent.sql" />
+    <Build Include="dbo\Tables\napis_intake_constituent.sql" />
+    <Build Include="dbo\Tables\napis_intake_contact.sql" />
+    <Build Include="dbo\Tables\constituent_assessment.sql" />
+    <Build Include="dbo\Tables\napis_intake_contact_event.sql" />
+    <Build Include="dbo\Tables\constituent_audit.sql" />
+    <Build Include="dbo\Tables\napis_intake_contact_type.sql" />
+    <Build Include="dbo\Tables\napis_intake_health.sql" />
+    <Build Include="dbo\Tables\constituent_caregiver.sql" />
+    <Build Include="dbo\Tables\napis_intake_program.sql" />
+    <Build Include="dbo\Tables\constituent_caregiver_audit.sql" />
+    <Build Include="dbo\Tables\constituent_case.sql" />
+    <Build Include="dbo\Tables\napis_medicare.sql" />
+    <Build Include="dbo\Tables\constituent_case_audit.sql" />
+    <Build Include="dbo\Tables\next_doe_id.sql" />
+    <Build Include="dbo\Tables\constituent_code_value.sql" />
+    <Build Include="dbo\Tables\next_id.sql" />
+    <Build Include="dbo\Tables\user.sql" />
+    <Build Include="dbo\Tables\constituent_face_to_face.sql" />
+    <Build Include="dbo\Tables\user_security_group.sql" />
+    <Build Include="dbo\Tables\constituent_goal_setting.sql" />
+    <Build Include="dbo\Tables\PROVIDER.sql" />
+    <Build Include="dbo\Tables\constituent_how_program.sql" />
+    <Build Include="dbo\Tables\constituent_id_list.sql" />
+    <Build Include="dbo\Tables\provider_service_types.sql" />
+    <Build Include="dbo\Tables\constituent_income_level.sql" />
+    <Build Include="dbo\Tables\provider_time_entry.sql" />
+    <Build Include="dbo\Tables\constituent_marital_status.sql" />
+    <Build Include="dbo\Tables\provider_time_entry_holidays.sql" />
+    <Build Include="dbo\Tables\constituent_merge.sql" />
+    <Build Include="dbo\Tables\provider_time_entry_type.sql" />
+    <Build Include="dbo\Tables\constituent_notes.sql" />
+    <Build Include="dbo\Tables\provider_time_entry_type_hours.sql" />
+    <Build Include="dbo\Tables\CONSTITUENT_PROVIDER.sql" />
+    <Build Include="dbo\Tables\red_tape_cutter.sql" />
+    <Build Include="dbo\Tables\CONSTITUENT_STATUS.sql" />
+    <Build Include="dbo\Tables\red_tape_cutter_service.sql" />
+    <Build Include="dbo\Tables\CONSTITUENT_STATUS_AUDIT.sql" />
+  </ItemGroup>
+</Project>

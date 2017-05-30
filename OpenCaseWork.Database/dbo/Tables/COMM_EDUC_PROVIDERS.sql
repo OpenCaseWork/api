@@ -1,0 +1,17 @@
+﻿CREATE TABLE [dbo].[COMM_EDUC_PROVIDERS] (
+    [UNQ_ID]           INT       IDENTITY (1, 1) NOT NULL,
+    [EVENT_ID]         INT       NOT NULL,
+    [EVENT_CLASS]      CHAR (1)  NULL,
+    [PROVIDER_NUMBER]  INT       NOT NULL,
+    [SERVICE_CODE_ID]  SMALLINT  NOT NULL,
+    [MINUTES]          INT       NULL,
+    [PROVIDER_ID]      INT       NULL,
+    [PLANNING_MINUTES] INT       NULL,
+    [TRAVEL_MINUTES]   INT       NULL,
+    [PROGRAM_MINUTES]  INT       NULL,
+    [INSERT_DT]        DATETIME  NULL,
+    [INSERT_USER]      CHAR (10) NULL,
+    [tenant_id]        INT       NULL,
+    CONSTRAINT [PK__COMM_EDUC_PROVID__1D7B6025] PRIMARY KEY NONCLUSTERED ([UNQ_ID] ASC) WITH (FILLFACTOR = 90)
+);
+

@@ -1,0 +1,25 @@
+﻿CREATE TABLE [dbo].[napis_intake_health] (
+    [napis_intake_health_id] INT          IDENTITY (1, 1) NOT NULL,
+    [napis_intake_id]        INT          NULL,
+    [arthritis]              BIT          NULL,
+    [arthritis_notes]        VARCHAR (50) NULL,
+    [diabetes]               BIT          NULL,
+    [diabetes_notes]         VARCHAR (50) NULL,
+    [hearing]                BIT          NULL,
+    [hearing_notes]          VARCHAR (50) NULL,
+    [heart]                  BIT          NULL,
+    [heart_notes]            VARCHAR (50) NULL,
+    [memory]                 BIT          NULL,
+    [memory_notes]           VARCHAR (50) NULL,
+    [mobility]               BIT          NULL,
+    [mobility_noes]          VARCHAR (50) NULL,
+    [respiratory]            BIT          NULL,
+    [respiratory_notes]      VARCHAR (50) NULL,
+    [visual]                 BIT          NULL,
+    [visual_notes]           VARCHAR (50) NULL,
+    [other]                  BIT          NULL,
+    [other_notes]            VARCHAR (50) NULL,
+    [tenant_id]              INT          NULL,
+    CONSTRAINT [PK_napis_intake_health] PRIMARY KEY CLUSTERED ([napis_intake_health_id] ASC)
+);
+

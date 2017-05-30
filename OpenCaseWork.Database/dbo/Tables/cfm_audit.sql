@@ -1,0 +1,27 @@
+﻿CREATE TABLE [dbo].[cfm_audit] (
+    [cfm_audit_id]     INT           IDENTITY (1, 1) NOT NULL,
+    [file_name]        VARCHAR (50)  NULL,
+    [first_name]       VARCHAR (50)  NULL,
+    [last_name]        VARCHAR (50)  NULL,
+    [client_id]        VARCHAR (50)  NULL,
+    [submit_date]      DATETIME      NULL,
+    [action_cd]        VARCHAR (50)  NULL,
+    [reason_cd]        VARCHAR (50)  NULL,
+    [billing_cd]       VARCHAR (50)  NULL,
+    [submit_type]      VARCHAR (50)  NULL,
+    [case_manager]     VARCHAR (50)  NULL,
+    [service_date]     DATETIME      NULL,
+    [EDD]              DATETIME      NULL,
+    [outcome]          VARCHAR (50)  NULL,
+    [insert_date]      DATETIME      NULL,
+    [insert_user]      VARCHAR (50)  NULL,
+    [assigned_to]      VARCHAR (50)  NULL,
+    [correction]       VARCHAR (200) NULL,
+    [mco_name]         VARCHAR (50)  NULL,
+    [location_id]      INT           NULL,
+    [fiscal_year_date] DATETIME      NULL,
+    [fiscal_year]      INT           NULL,
+    [tenant_id]        INT           NULL,
+    CONSTRAINT [PK_cfm_audit] PRIMARY KEY CLUSTERED ([cfm_audit_id] ASC) WITH (FILLFACTOR = 90)
+);
+

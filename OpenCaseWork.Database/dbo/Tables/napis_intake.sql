@@ -1,0 +1,28 @@
+﻿CREATE TABLE [dbo].[napis_intake] (
+    [napis_intake_id]                INT          IDENTITY (1, 1) NOT NULL,
+    [constituent_id]                 INT          NULL,
+    [open_date]                      DATETIME     NULL,
+    [assigned_provider_id]           INT          NULL,
+    [completed_date]                 DATETIME     NULL,
+    [completed_by]                   VARCHAR (50) NULL,
+    [is_caregiver]                   BIT          NULL,
+    [recipient_id]                   INT          NULL,
+    [recipient_name]                 VARCHAR (50) NULL,
+    [caregiver_id]                   INT          NULL,
+    [caregiver_name]                 VARCHAR (50) NULL,
+    [caregiver_relationship_type_id] INT          NULL,
+    [physician_name]                 VARCHAR (50) NULL,
+    [physician_phone_1]              VARCHAR (10) NULL,
+    [physician_phone_2]              VARCHAR (10) NULL,
+    [hospital_name]                  VARCHAR (50) NULL,
+    [hospital_phone_1]               VARCHAR (10) NULL,
+    [hospital_phone_2]               VARCHAR (10) NULL,
+    [release_date]                   DATETIME     NULL,
+    [room_number]                    VARCHAR (10) NULL,
+    [provider_id]                    INT          NULL,
+    [programs]                       VARCHAR (50) NULL,
+    [program_ids]                    VARCHAR (50) NULL,
+    [tenant_id]                      INT          NULL,
+    CONSTRAINT [PK_napis_intake] PRIMARY KEY CLUSTERED ([napis_intake_id] ASC)
+);
+
