@@ -7,7 +7,12 @@ using System.Threading.Tasks;
 
 namespace OpenCaseWork.Constituents.Data
 {
-    public class ContactRepository
+    public interface IContactRepository
+    {
+        Task<List<ConstituentContact>> GetContactsForConstituentId(int constituentId);
+    }
+
+    public class ContactRepository: IContactRepository
     {
         private ConstituentContext _context;
 

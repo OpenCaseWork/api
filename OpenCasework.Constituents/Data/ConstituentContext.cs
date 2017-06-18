@@ -4,6 +4,7 @@ using OpenCaseWork.Models.Constituents.Domains;
 
 namespace OpenCaseWork.Constituents.Data
 {
+
     public class ConstituentContext : DbContext
     {                
         public DbSet<City> Cities { get; set; }
@@ -18,12 +19,11 @@ namespace OpenCaseWork.Constituents.Data
         public DbSet<Township> Townships { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
-        {
-            /*modelBuilder.ForSqlServerHasSequence<int>("DBSequence")
-                .StartsAt(1000).IncrementsBy(1);
+        {            
+            modelBuilder.HasSequence<int>("ConstituentSequence");
             modelBuilder.Entity<Constituent>()
                .Property(x => x.ConstituentId)
-               .HasDefaultValueSql("NEXT VALUE FOR DBSequence");*/
+               .HasDefaultValueSql("NEXT VALUE FOR ConstituentSequence");
         
             modelBuilder.Entity<PostalCodeCity>()
                 .HasKey(c => new { c.CityId, c.PostalCode });

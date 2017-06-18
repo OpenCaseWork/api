@@ -7,6 +7,7 @@ using OpenCaseWork.Core.Hosting;
 using OpenCaseWork.Constituents.Data;
 using Microsoft.EntityFrameworkCore;
 using OpenCaseWork.Core.Data;
+using OpenCaseWork.Models.Constituents;
 
 namespace OpenCaseWork.Constituents
 {
@@ -43,8 +44,8 @@ namespace OpenCaseWork.Constituents
 
 
             // Add application services.
-            services.Add(ServiceDescriptor.Singleton(typeof(IRepository<>), typeof(Repository<>)));
             services.AddSingleton<IDomainRepository, DomainRepository>();
+            services.AddSingleton<IConstituentRepository, ConstituentRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

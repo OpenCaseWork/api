@@ -6,25 +6,52 @@ using System.Collections.Generic;
 using Microsoft.AspNetCore.Cors;
 using OpenCaseWork.Constituents.Models.Search;
 using OpenCaseWork.Models.Constituents;
+using OpenCaseWork.Core.Data;
+using OpenCaseWork.Constituents.Data;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
     [Route("api/[controller]")]
     public class ConstituentsController : Controller
     {
+        private Repository<Constituent> _repository;
+        private Repository<ConstituentContact> _contactRepo;
+        private ConstituentContext _context;
+        private IConstituentRepository _constituentRepository;
+
+        public ConstituentsController(ConstituentContext context, IConstituentRepository constituentRepository)
+        {
+            _repository = new Repository<Constituent>(context);
+            _contactRepo = new Repository<ConstituentContact>(context);
+            _context = context;
+            _constituentRepository = constituentRepository;
+
+        }
+
         // GET api/values
         [HttpPost("search")]
         public async Task<IActionResult> Constituents([FromBody] ConstituentSearchRequest searchFilter)
         {
             var result = new ConstituentSearchResponse();
-            ConstituentSearchRecord record = new ConstituentSearchRecord();
-            record.Address = "89 golfview";
-            record.Name = "Keith Katsma";
-            record.Id = 1;
             result.Records = new List<ConstituentSearchRecord>();
-            result.Records.Add(record);
-            var task = Task.FromResult(result);
-            return Ok(await task);
+
+            List<Constituent> list = await _constituentRepository.Search(searchFilter);
+            foreach(Constituent c in list)
+            {
+                var record = new ConstituentSearchRecord()
+                {
+                    Address = c.Address1,
+                    Name = c.FirstName + ' ' + c.LastName,
+                    Id = c.ConstituentId,
+                    City = "",
+                    Phone = "",
+                    PostalCode = c.PostalCode,
+                    State = c.StateCd
+                };
+                result.Records.Add(record);
+            }
+
+            return Ok(result);
         }
 
         [HttpPost]

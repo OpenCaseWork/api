@@ -36,7 +36,7 @@ namespace OpenCaseWork.Constituents.Tests
             _genericConstituentRepo = new Repository<Constituent>(context);
             _genericContactRepo = new Repository<ConstituentContact>(context);
                               
-            _controller = new ConstituentAggregatesController(_genericConstituentRepo, _genericContactRepo,context,_constituentRepo);
+            _controller = new ConstituentAggregatesController(context,_constituentRepo);
             _controller.ControllerContext = new ControllerContext
             {
                 HttpContext = new DefaultHttpContext(),
@@ -85,19 +85,6 @@ namespace OpenCaseWork.Constituents.Tests
 
             //Assert
             ValidateAggregateResult(result);
-
-
-            //validate database
-            /*using (var context = new ConstituentContext(_options))
-            {
-                Assert.Equal(1, context.Constituents.Count());
-                Assert.Equal("Joe", context.Constituents.Single().FirstName);
-                Assert.True(context.Constituents.Single().ConstituentId == 1);
-
-                Assert.Equal(1, context.Contacts.Count());
-                Assert.True(context.Contacts.Single().ConstituentId == 1);
-                Assert.Equal(_phoneNumber, context.Contacts.Single().ContactValue);
-            }*/
 
             //Act
             IActionResult getResult = await _controller.Get(1);

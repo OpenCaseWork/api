@@ -14,6 +14,12 @@ namespace OpenCaseWork.Models.Constituents.Domains
         public int? Sequence { get; set; }
         [Column("is_phone")]
         public bool IsPhone { get; set; }
+        [Column("ui_sequence")]
+        public int UISequence { get; set; }
+        [Column("is_default")]
+        public bool IsDefault { get; set; }
+        [Column("is_email")]
+        public bool IsEmail { get; set; }
 
     }
 }
