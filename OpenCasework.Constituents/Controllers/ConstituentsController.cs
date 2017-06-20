@@ -35,8 +35,8 @@ namespace OpenCaseWork.Constituents.Controllers
             var result = new ConstituentSearchResponse();
             result.Records = new List<ConstituentSearchRecord>();
 
-            List<Constituent> list = await _constituentRepository.Search(searchFilter);
-            foreach(Constituent c in list)
+            result.Records = await _constituentRepository.Search(searchFilter);
+            /*foreach(Constituent c in list)
             {
                 var record = new ConstituentSearchRecord()
                 {
@@ -49,7 +49,7 @@ namespace OpenCaseWork.Constituents.Controllers
                     State = c.StateCd
                 };
                 result.Records.Add(record);
-            }
+            }*/
 
             return Ok(result);
         }
@@ -62,37 +62,6 @@ namespace OpenCaseWork.Constituents.Controllers
             var task = Task.FromResult(constituent);
             return Ok(await task);
         }
-
-        // Search
-        [HttpGet]
-        public async Task<IActionResult> Constituents()
-        {
-            var result = new ConstituentSearchResponse();
-            ConstituentSearchRecord record = new ConstituentSearchRecord();
-            record.Address = "89 golfview";
-            record.Name = "Keith Katsma";
-            record.Id = 1;
-            result.Records = new List<ConstituentSearchRecord>();
-            result.Records.Add(record);
-            var task = Task.FromResult(result);
-            return Ok(await task);
-        }
-
-        // GET api/values/5
-        [HttpGet("{id}")]
-        public async Task<IActionResult> Get(int id)
-        {
-            var constituent = new Constituent();
-            constituent.Address1 = "89 golfview";
-            constituent.FirstName = "Keith";
-            constituent.LastName = "Katsma";
-            constituent.CityId = 1;
-            constituent.ConstituentId = 123;
-            constituent.MiddleName = "Matthew";
-            var task = Task.FromResult(constituent);
-            return Ok(await task);
-        }
-
 
         // PUT api/values/5
         [HttpPut("{id}")]

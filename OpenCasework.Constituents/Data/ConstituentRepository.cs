@@ -12,7 +12,7 @@ namespace OpenCaseWork.Constituents.Data
 
     public interface IConstituentRepository
     {
-        Task<List<Constituent>> Search(ConstituentSearchRequest constituent);
+        Task<List<ConstituentSearchRecord>> Search(ConstituentSearchRequest constituent);
         Task<int> GetNextConstituentId();
         Task<List<ConstituentContact>> GetContactsForConstituentId(int constituentId);
 
@@ -33,13 +33,13 @@ namespace OpenCaseWork.Constituents.Data
             return await Task.FromResult(2);
         }
 
-        public async Task<List<Constituent>> Search(ConstituentSearchRequest request)
+        public async Task<List<ConstituentSearchRecord>> Search(ConstituentSearchRequest request)
         {
-            var query = from u in _context.Constituents
+            var query = from u in _context.ConstituentSearchRecords
                         select u;
 
             if (!String.IsNullOrEmpty(request.Address))
-                query = query.Where(u => u.Address1.StartsWith(request.Address));
+                query = query.Where(u => u.Address.StartsWith(request.Address));
 
             if (!String.IsNullOrEmpty(request.LastName))
                 query = query.Where(u => u.LastName.StartsWith(request.LastName));

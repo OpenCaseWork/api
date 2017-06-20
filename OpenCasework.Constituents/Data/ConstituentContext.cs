@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using OpenCaseWork.Constituents.Models.Search;
 using OpenCaseWork.Models.Constituents;
 using OpenCaseWork.Models.Constituents.Domains;
 
@@ -17,6 +18,7 @@ namespace OpenCaseWork.Constituents.Data
         public DbSet<Suffix> Suffixes { get; set; }
         public DbSet<Title> Titles { get; set; }
         public DbSet<Township> Townships { get; set; }
+        public DbSet<ConstituentSearchRecord> ConstituentSearchRecords { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
