@@ -27,6 +27,11 @@ namespace OpenCaseWork.Models.Base
     {
         public List<T> Data;
     }
+
+    public class BaseEntityResponse<T> : BaseResponse
+    {
+        public T Data;
+    }
 }
 
 

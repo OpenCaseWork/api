@@ -15,3 +15,11 @@ export class BaseSearchRequest {
 export class BaseSearchResponse<T> extends BaseResponse {
   public data: T[];
 }
+
+export class BaseEntityResponse<T> extends BaseResponse {
+  public data: T;
+}
+
+export class BaseEntity {
+}
+

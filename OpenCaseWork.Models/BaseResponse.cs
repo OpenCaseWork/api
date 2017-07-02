@@ -15,6 +15,5 @@ namespace OpenCaseWork.Models
         public ResponseStatus ResponseInfo { get; set; }
 
 
-
     }
 }

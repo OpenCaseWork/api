@@ -5,6 +5,7 @@ using OpenCaseWork.Models.Constituents;
 using OpenCaseWork.Constituents.Data;
 using OpenCaseWork.Core.Data;
 using System.Linq;
+using OpenCaseWork.Models.Base;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
@@ -48,11 +49,15 @@ namespace OpenCaseWork.Constituents.Controllers
             await _contactRepo.Save();
 
             //rebuild response 
-            var returnAggregate = new ConstituentAggregate();
-            returnAggregate.Constituent = constituent;
-            returnAggregate.Contacts = contacts;
+            var response = new EntityResponse();
+            var returnAggregate = new ConstituentAggregate()
+            {
+                Constituent = constituent,
+                Contacts = contacts
+            };
+            response.Data = returnAggregate;
 
-            return Ok(returnAggregate);
+            return Ok(response);
 
         }
 
@@ -74,10 +79,12 @@ namespace OpenCaseWork.Constituents.Controllers
             };
             await Task.WhenAll(taskList.ToArray());
 
+            var response = new EntityResponse();
             aggregate.Constituent = taskGetConstituent.Result;
             aggregate.Contacts = taskGetContacts.Result;
+            response.Data = aggregate;
  
-            return Ok(aggregate);
+            return Ok(response);
         }
 
 
