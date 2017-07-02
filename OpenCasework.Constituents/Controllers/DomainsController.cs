@@ -5,6 +5,7 @@ using OpenCaseWork.Constituents.Data;
 using OpenCaseWork.Models.Constituents.Domains;
 using System.Linq;
 using OpenCaseWork.Models.Domains;
+using OpenCaseWork.Models.Base;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
@@ -35,6 +36,7 @@ namespace OpenCaseWork.Constituents.Controllers
             if (_loadedDomains != null)
                 return Ok(_loadedDomains);
 
+            BaseDomainsResponse response = new BaseDomainsResponse();      
             ConstituentDomains record = new ConstituentDomains();
             var taskGetCities = _domainRepository.Cities();
             var taskGetContactTypes = _domainRepository.ContactTypes();
@@ -63,8 +65,9 @@ namespace OpenCaseWork.Constituents.Controllers
             record.Townships = taskTownships.Result;
 
             _loadedDomains = record;
+            response.Data = record;
 
-            return Ok(record);
+            return Ok(response);
         }
     }
 }

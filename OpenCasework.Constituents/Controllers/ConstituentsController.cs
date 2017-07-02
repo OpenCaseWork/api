@@ -33,9 +33,9 @@ namespace OpenCaseWork.Constituents.Controllers
         public async Task<IActionResult> Constituents([FromBody] ConstituentSearchRequest searchFilter)
         {
             var result = new ConstituentSearchResponse();
-            result.Records = new List<ConstituentSearchRecord>();
+            result.Data = new List<ConstituentSearchRecord>();
 
-            result.Records = await _constituentRepository.Search(searchFilter);
+            result.Data = await _constituentRepository.Search(searchFilter);
             /*foreach(Constituent c in list)
             {
                 var record = new ConstituentSearchRecord()

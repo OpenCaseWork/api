@@ -5,6 +5,6 @@ namespace OpenCaseWork.Constituents.Models.Search
 {
     public class ConstituentSearchResponse: BaseResponse
     {
-        public List<ConstituentSearchRecord> Records { get; set; }
+        public List<ConstituentSearchRecord> Data { get; set; }
     }
 }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace OpenCaseWork.Models.Constituents.Domains
 {
-    public class ConstituentDomains
+    public class ConstituentDomains: BaseResponse
     {                
         //public List<City> Cities { get; set; }
         public List<SelectItem> Cities { get; set; }

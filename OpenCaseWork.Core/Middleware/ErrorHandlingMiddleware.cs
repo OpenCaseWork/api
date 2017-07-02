@@ -58,7 +58,7 @@ namespace OpenCaseWork.Core.Middleware
                 error = new ResponseStatus
                 {
                     Message = exception.Message,
-                    ErrorCode = code.ToString(),
+                    StatusCode = (int) code,
                     StackTrace = exception.StackTrace
                 }
             })).ConfigureAwait(false);

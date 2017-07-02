@@ -5,6 +5,7 @@ namespace OpenCaseWork.Models
     {
         public BaseResponse()
         {
+            this.ResponseInfo = new ResponseStatus();
         }
  
 

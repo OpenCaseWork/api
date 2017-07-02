@@ -4,7 +4,8 @@ namespace OpenCaseWork.Models
 {
     public class ResponseStatus
     {
-        public string ErrorCode { get; set; }
+        public int ErrorEnumId { get; set; }
+        public int StatusCode { get; set; }
 
         /// <summary>
         /// A human friendly error message
