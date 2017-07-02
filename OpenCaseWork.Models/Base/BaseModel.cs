@@ -32,11 +32,18 @@ namespace OpenCaseWork.Models.Base
     {
         public T Data;
     }
+
+    public class BaseEntityRequest<T>
+    {
+        public T Data;
+        public string Resource;
+    }
+
 }
 
 
 
 
- 
+
 
 
