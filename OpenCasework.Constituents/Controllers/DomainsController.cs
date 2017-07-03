@@ -36,7 +36,7 @@ namespace OpenCaseWork.Constituents.Controllers
             if (_loadedDomains != null)
                 return Ok(_loadedDomains);
 
-            BaseDomainsResponse response = new BaseDomainsResponse();      
+            var response = new BasePostResponse<ConstituentDomains>();      
             ConstituentDomains record = new ConstituentDomains();
             var taskGetCities = _domainRepository.Cities();
             var taskGetContactTypes = _domainRepository.ContactTypes();

@@ -6,7 +6,7 @@ namespace OpenCaseWork.Models
 {
     class EntityRequest
     {
-        public string Resource;
-        public int Id;
+        public string Resource = string.Empty;
+        public int Id = 0;
     }
 }

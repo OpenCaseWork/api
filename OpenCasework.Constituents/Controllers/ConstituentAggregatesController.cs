@@ -6,6 +6,8 @@ using OpenCaseWork.Constituents.Data;
 using OpenCaseWork.Core.Data;
 using System.Linq;
 using OpenCaseWork.Models.Base;
+using Microsoft.AspNetCore.Http;
+using System.Net;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
@@ -31,14 +33,19 @@ namespace OpenCaseWork.Constituents.Controllers
         [HttpPost]
         public async Task<IActionResult> Post([FromBody] ConstituentAggregate aggregate)
         {
+            HttpStatusCode responseCode;
             var constituent = aggregate.Constituent;
             if (constituent.ConstituentId <= 0)
             {
                 // constituent.ConstituentId = await _constituentRepository.GetNextConstituentId();
                 constituent = await _repository.Add(constituent, _context.Constituents);
+                responseCode = HttpStatusCode.Created;
             }
             else
+            {
                 constituent = await _repository.Update(constituent);
+                responseCode = HttpStatusCode.OK;
+            }
 
 
             //contacts
@@ -57,7 +64,10 @@ namespace OpenCaseWork.Constituents.Controllers
             };
             response.Data = returnAggregate;
 
-            return Ok(response);
+            if (responseCode == HttpStatusCode.Created)
+                return Created("",response);
+            else
+                return Ok(response);
 
         }
 
