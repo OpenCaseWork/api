@@ -45,6 +45,7 @@ namespace OpenCaseWork.Constituents
 
             // Add application services.
             services.AddSingleton<IDomainRepository, DomainRepository>();
+            services.AddSingleton<IContactEventDomainRepository, ContactEventDomainRepository>();
             services.AddSingleton<IConstituentRepository, ConstituentRepository>();
         }
 

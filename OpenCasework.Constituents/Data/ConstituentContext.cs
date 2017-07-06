@@ -2,6 +2,8 @@
 using OpenCaseWork.Constituents.Models.Search;
 using OpenCaseWork.Models.Constituents;
 using OpenCaseWork.Models.Constituents.Domains;
+using OpenCaseWork.Models.ContactEvents;
+using OpenCaseWork.Models.ContactEvents.Domains;
 
 namespace OpenCaseWork.Constituents.Data
 {
@@ -19,6 +21,8 @@ namespace OpenCaseWork.Constituents.Data
         public DbSet<Title> Titles { get; set; }
         public DbSet<Township> Townships { get; set; }
         public DbSet<ConstituentSearchRecord> ConstituentSearchRecords { get; set; }
+        public DbSet<Service> Services { get; set; }
+        public DbSet<ServiceType> ServiceTypes { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            
