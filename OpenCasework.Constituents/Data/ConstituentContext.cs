@@ -37,6 +37,7 @@ namespace OpenCaseWork.Constituents.Data
 
         public ConstituentContext(DbContextOptions<ConstituentContext> options) : base(options)
         {
+            this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
     }
 }
