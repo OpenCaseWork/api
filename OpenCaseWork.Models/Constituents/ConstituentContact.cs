@@ -20,7 +20,7 @@ namespace OpenCaseWork.Models.Constituents
         [Column("contact_text")]
         public string ContactValue { get; set; }
         [Column("contact_text_2")]
-        public string ContactVelue2 { get; set; }        
+        public string ContactValue2 { get; set; }        
         [Column("contact_notes")]
         public string Notes { get; set; }
         [Column("extension")]

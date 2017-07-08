@@ -20,6 +20,8 @@ namespace OpenCaseWork.Models.Constituents.Domains
         public bool IsDefault { get; set; }
         [Column("is_email")]
         public bool IsEmail { get; set; }
-
+        [Column("field_name")]
+        public string FieldName { get; set; }      
+        public string PlaceHolder { get; set; }
     }
 }

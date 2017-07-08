@@ -52,7 +52,7 @@ namespace OpenCaseWork.Constituents.Controllers
             var contacts = aggregate.Contacts ?? new List<ConstituentContact>();
             contacts.Select(c => { c.ConstituentId = constituent.ConstituentId; return c; }).ToList();
             _contactRepo.AddWithoutSave(contacts.Where(c => c.Id == 0).ToList(), _context.Contacts);
-            _contactRepo.UpdateWithoutSave(contacts.Where(c => c.Id == 0).ToList(), _context.Contacts);
+            _contactRepo.UpdateWithoutSave(contacts.Where(c => c.Id > 0).ToList(), _context.Contacts);
             await _contactRepo.Save();
 
             //rebuild response 

@@ -70,9 +70,9 @@ export class ConstituentContact extends AuditedEntity {
   /*[Column("contact_type_id")]*/
   public contactTypeId: number;
   /*[Column("contact_text")]*/
-  public contactValue: number;
+  public contactValue: string;
   /*[Column("contact_text_2")]*/
-  public contactVelue2: number;
+  public contactValue2: string;
   /*[Column("contact_notes")]*/
   public notes: string;
   /*[Column("extension")]*/

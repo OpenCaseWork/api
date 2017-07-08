@@ -36,6 +36,8 @@ export class ContactType {
   public isDefault: boolean;
   /*[Column("is_email")]*/
   public isEmail: boolean;
+  public fieldName: string;
+  public placeHolder: string;
 }
 
 /*[Table("zip_code")]*/
