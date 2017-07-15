@@ -4,6 +4,7 @@ using OpenCaseWork.Models.Constituents;
 using OpenCaseWork.Models.Constituents.Domains;
 using OpenCaseWork.Models.ContactEvents;
 using OpenCaseWork.Models.ContactEvents.Domains;
+using OpenCaseWork.Models.Entity;
 
 namespace OpenCaseWork.Constituents.Data
 {
@@ -12,6 +13,8 @@ namespace OpenCaseWork.Constituents.Data
     {                
         public DbSet<City> Cities { get; set; }
         public DbSet<Constituent> Constituents { get; set; }
+        public DbSet<ConstituentMaritalStatus> ConstituentMaritalStatuses { get; set; }
+        public DbSet<ConstituentNote> ConstituentNotes { get; set; }
         public DbSet<ConstituentContact> Contacts { get; set; }
         public DbSet<ContactType> ContactTypes { get; set; }
         public DbSet<PostalCode> PostalCodes { get; set; }
@@ -23,6 +26,14 @@ namespace OpenCaseWork.Constituents.Data
         public DbSet<ConstituentSearchRecord> ConstituentSearchRecords { get; set; }
         public DbSet<Service> Services { get; set; }
         public DbSet<ServiceType> ServiceTypes { get; set; }
+        public DbSet<Entity> Entities { get; set; }
+        public DbSet<Ethnicity> Ethnicities { get; set; }
+        public DbSet<Gender> Genders { get; set; }
+        public DbSet<IncomeLevel> IncomeLevels { get; set; }
+        public DbSet<Language> Languages { get; set; }
+        public DbSet<MaritalStatus> MaritalStatuses { get; set; }
+        public DbSet<Race> Races { get; set; }
+
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {            

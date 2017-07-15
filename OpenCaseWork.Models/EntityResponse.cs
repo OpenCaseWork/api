@@ -4,8 +4,8 @@ using System.Text;
 
 namespace OpenCaseWork.Models.Constituents
 {
-    public class EntityResponse: BaseResponse
+    public class EntityResponse<T>: BaseResponse
     {
-        public object Data;
+        public T Data;
     }
 }

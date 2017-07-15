@@ -1,17 +1,21 @@
-﻿using OpenCaseWork.Models.Audit;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using OpenCaseWork.Models.Attributes;
+using OpenCaseWork.Models.Audit;
+using OpenCaseWork.Models.Domains;
 using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace OpenCaseWork.Models.Constituents
 {
     [Table("constituent")]
-    public class Constituent: AuditedEntity
+    public class Constituent : AuditedEntity
     {
         [Column("constituent_id")]
         public int ConstituentId { get; set; }
         [Column("title_id")]
         public int? TitleId { get; set; }
-        // public string Title { get; set; }
         [Column("first_name")]
         public string FirstName { get; set; }
         [Column("last_name")]
@@ -19,8 +23,7 @@ namespace OpenCaseWork.Models.Constituents
         [Column("middle_name")]
         public string MiddleName { get; set; }
         [Column("suffix_id")]
-        public Int16? SuffixId { get; set; }
-        //public string Suffix { get; set; }
+        public int? SuffixId { get; set; }
         public string NickName { get; set; }
         [Column("addr1")]
         public string Address1 { get; set; }
@@ -30,13 +33,14 @@ namespace OpenCaseWork.Models.Constituents
         public int? CityId { get; set; }
         [Column("township_id")]
         public int? TownshipId { get; set; }
+        [Column("state_id")]
+        public int? StateId { get; set; }
         [Column("state_cd")]
         public string StateCd { get; set; }
         [Column("zip_id")]
         public int? PostalCodeId { get; set; }
         [Column("zip_code")]
-        public string PostalCode { get; set; }
-
+        private string PostalCode { get; set; }
         [Column("federal_id")]
         public string FederalId { get; set; }
         [Column("birth_date")]
@@ -45,27 +49,42 @@ namespace OpenCaseWork.Models.Constituents
         public int? GenderId { get; set; }
         [Column("minority_id")]
         public int? MinorityId { get; set; }
+        [Column("ethnicity_id")]
+        public int? EthnicityId { get; set; }
         [Column("income_level_id")]
         public int? IncomeLevelId { get; set; }
+        [Column("preferred_language_id")]
+        public int? PreferredLanguageId { get; set; }
+        [Column("marital_status_id")]
+        public int? MaritalStatusId { get; set; }
         [Column("maiden_name")]
         public string MaidenName { get; set; }
-
         [Column("living_alone")]
-        public bool? LivingAlone { get; set; }
+        public string LivingAlone { get; set; }
         [Column("lives_in_nursing_home")]
-        public bool? LivesInNursingHome { get; set; }
+        public string LivesInNursingHome { get; set; }
         [Column("frail_disabled")]
-        public bool? FrailDisabled { get; set; }
+        public string FrailDisabled { get; set; }
         [Column("limited_english")]
-        public bool? LimitedEnglish { get; set; }
+        public string LimitedEnglish { get; set; }
         [Column("case_worker_risk")]
-        public bool? CaseWorkerRisk { get; set; }
+        public string CaseWorkerRisk { get; set; }
         [Column("homeless")]
-        public bool? Homeless { get; set; }
+        public string Homeless { get; set; }
         [Column("female_headed_household")]
-        public bool? FemaleHeadedHousehold { get; set; }
+        public string FemaleHeadedHousehold { get; set; }
         [Column("pet")]
-        public bool? Pet { get; set; }
+        public string Pet { get; set; }
+        [Column("eccpis_number")]
+        public string EccpisNumber { get; set; }
+        [Column("rin_number")]
+        public string RinNumber { get; set; }
+        [Column("grg_count")]
+        public int? GrgCount { get; set; }
+
+
 
     }
+     
+
 }

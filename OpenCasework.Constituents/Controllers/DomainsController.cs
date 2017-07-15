@@ -45,6 +45,12 @@ namespace OpenCaseWork.Constituents.Controllers
             var taskGetSuffix = _domainRepository.Suffixes();
             var taskGetTitles = _domainRepository.Titles();
             var taskTownships = _domainRepository.Townships();
+            var taskEthnicities = _domainRepository.Ethnicities();
+            var taskGenders = _domainRepository.Genders();
+            var taskIncomeLevels = _domainRepository.IncomeLevels();
+            var taskLanguages = _domainRepository.Languages();
+            var taskMaritalStatuses = _domainRepository.MaritalStatuses();
+            var taskRaces = _domainRepository.Races();
             var taskList = new List<Task>() {
                 taskGetCities,
                 taskGetContactTypes,
@@ -52,7 +58,13 @@ namespace OpenCaseWork.Constituents.Controllers
                 taskState,
                 taskGetTitles, 
                 taskGetSuffix,
-                taskTownships 
+                taskTownships,
+                taskEthnicities,
+                taskGenders,
+                taskIncomeLevels,
+                taskLanguages,
+                taskMaritalStatuses,
+                taskRaces
             };
             await Task.WhenAll(taskList.ToArray());
 
@@ -60,9 +72,15 @@ namespace OpenCaseWork.Constituents.Controllers
             record.Suffixes = taskGetSuffix.Result.Select(x => new SelectItem() { Id = x.SuffixId, ShortDescription = x.SuffixText }).ToList();
             record.Titles = taskGetTitles.Result.Select(x => new SelectItem() { Id = x.TitleId, ShortDescription = x.TitleText }).ToList();
             record.ContactTypes = taskGetContactTypes.Result;
-            record.PostalCodes = taskPostal.Result;
-            record.States = taskState.Result;
-            record.Townships = taskTownships.Result;
+            record.PostalCodes = taskPostal.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.Code }).ToList();
+            record.States = taskState.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.StateCd }).ToList();
+            record.Townships = taskTownships.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.TownshipName }).ToList();
+            record.Ethnicities = taskEthnicities.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.Description }).ToList();
+            record.Genders = taskGenders.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.Description }).ToList();
+            record.IncomeLevels = taskIncomeLevels.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.Description }).ToList();
+            record.Languages = taskLanguages.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.CodeText }).ToList();
+            record.MaritalStatuses = taskMaritalStatuses.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.MaritalType }).ToList();
+            record.Races = taskRaces.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.Type }).ToList();
 
             _loadedDomains = record;
             response.Data = record;

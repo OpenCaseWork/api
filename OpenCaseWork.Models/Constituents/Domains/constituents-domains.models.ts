@@ -3,11 +3,17 @@
 export class ConstituentDomains {
   public cities: SelectItem[];
   public contactTypes: ContactType[];
-  public postalCodes: PostalCode[];
-  public states: State[];
+  public postalCodes: SelectItem[];
+  public states: SelectItem[];
   public suffixes: SelectItem[];
   public titles: SelectItem[];
-  public townships: Township[];
+  public townships: SelectItem[];
+  public maritalStatuses: SelectItem[];
+  public genders: SelectItem[];
+  public incomeLevels: SelectItem[];
+  public races: SelectItem[];
+  public ethnicities: SelectItem[];
+  public languages: SelectItem[];
 }
 /*[Table("city")]*/
 export class City {

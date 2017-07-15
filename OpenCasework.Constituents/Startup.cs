@@ -8,6 +8,7 @@ using OpenCaseWork.Constituents.Data;
 using Microsoft.EntityFrameworkCore;
 using OpenCaseWork.Core.Data;
 using OpenCaseWork.Models.Constituents;
+using Newtonsoft.Json.Serialization;
 
 namespace OpenCaseWork.Constituents
 {
@@ -38,7 +39,11 @@ namespace OpenCaseWork.Constituents
                     .AllowAnyHeader()
                     .AllowCredentials());
             });
-            services.AddMvc();
+            services.AddMvc()
+              .AddJsonOptions(opts =>
+              {
+                  opts.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
+              });
 
             services.AddDbContext<ConstituentContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
@@ -47,6 +52,7 @@ namespace OpenCaseWork.Constituents
             services.AddSingleton<IDomainRepository, DomainRepository>();
             services.AddSingleton<IContactEventDomainRepository, ContactEventDomainRepository>();
             services.AddSingleton<IConstituentRepository, ConstituentRepository>();
+            services.AddSingleton<IEntityRepository, EntityRepository>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

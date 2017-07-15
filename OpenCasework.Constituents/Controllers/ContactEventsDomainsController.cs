@@ -34,8 +34,8 @@ namespace OpenCaseWork.Constituents.Controllers
         [HttpGet]
         public async Task<IActionResult> Domains()
         {
-            if (_loadedDomains != null)
-                return Ok(_loadedDomains);
+          //  if (_loadedDomains != null)
+           //     return Ok(_loadedDomains);
 
             var response = new BasePostResponse<ContactEventDomains>();
             ContactEventDomains record = new ContactEventDomains();
@@ -50,7 +50,7 @@ namespace OpenCaseWork.Constituents.Controllers
             record.ServiceCodes = taskGetServices.Result.Select(x => new SelectItem() { Id = x.Id, Code = x.Code.ToString(), ShortDescription = x.Description }).ToList();
             record.ServiceTypes = taskGetServiceTypes.Result.Select(x => new SelectItem() { Id = x.Id, ShortDescription = x.Abbreviation, LongDescription = x.Name }).ToList();
 
-            _loadedDomains = record;
+           // _loadedDomains = record;
             response.Data = record;
 
             return Ok(response);

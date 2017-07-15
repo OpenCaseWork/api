@@ -3,10 +3,12 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Controllers;
 using Microsoft.AspNetCore.Routing;
 using Microsoft.EntityFrameworkCore;
+using Newtonsoft.Json.Linq;
 using OpenCaseWork.Constituents.Controllers;
 using OpenCaseWork.Constituents.Data;
 using OpenCaseWork.Core.Data;
 using OpenCaseWork.Models.Constituents;
+using OpenCaseWork.Models.Entity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -23,6 +25,7 @@ namespace OpenCaseWork.Constituents.Tests
         private IConstituentRepository _constituentRepo;
         private IRepository<Constituent> _genericConstituentRepo;
         private IRepository<ConstituentContact> _genericContactRepo;
+        private IEntityRepository _entityRepo;
 
         public ConstituentAggregatesControllerTests()
         {
@@ -35,8 +38,9 @@ namespace OpenCaseWork.Constituents.Tests
             _constituentRepo = new ConstituentRepository(context);
             _genericConstituentRepo = new Repository<Constituent>(context);
             _genericContactRepo = new Repository<ConstituentContact>(context);
+            _entityRepo = new EntityRepository(context);
                               
-            _controller = new ConstituentAggregatesController(context,_constituentRepo);
+            _controller = new ConstituentAggregatesController(context,_constituentRepo, _entityRepo);
             _controller.ControllerContext = new ControllerContext
             {
                 HttpContext = new DefaultHttpContext(),
@@ -50,13 +54,13 @@ namespace OpenCaseWork.Constituents.Tests
         {
             var agg = new ConstituentAggregate();
             var constituent = new Constituent();
-            var contact = new ConstituentContact();
+            var contact = new ConstituentContact();            
 
             constituent.FirstName = "Joe";
             constituent.LastName = "Smith";
             constituent.ConstituentId = 0;
             agg.Constituent = constituent;
-
+  
             contact.ContactTypeId = 1;
             contact.ContactValue = _phoneNumber;
             agg.Contacts = new List<ConstituentContact>();
@@ -68,10 +72,10 @@ namespace OpenCaseWork.Constituents.Tests
         private void ValidateAggregateResult(IActionResult result)
         {
             var objectResult = Assert.IsType<OkObjectResult>(result);
-            var newAgg = Assert.IsType<ConstituentAggregate>(objectResult.Value);
-            Assert.Equal(1, newAgg.Constituent.ConstituentId);
-            Assert.Equal(1, newAgg.Contacts.Count);
-            Assert.Equal(_phoneNumber, newAgg.Contacts[0].ContactValue);
+            var newAgg = Assert.IsType<EntityResponse<ConstituentAggregate>>(objectResult.Value);
+            Assert.Equal(1, newAgg.Data.Constituent.ConstituentId);
+            Assert.Equal(1, newAgg.Data.Contacts.Count);
+            Assert.Equal(_phoneNumber, newAgg.Data.Contacts[0].ContactValue);
         }
 
         [Fact]

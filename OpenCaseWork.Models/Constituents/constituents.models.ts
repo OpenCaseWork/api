@@ -1,11 +1,12 @@
 ﻿import { AuditedEntity } from '../Audit/audit.models';
+import { SelectItem } from '../Domains/domains.models';
 
 export class Constituent extends AuditedEntity {
+
   /*[Column("constituent_id")]*/
   public constituentId: number;
   /*[Column("title_id")]*/
   public titleId: number;
-  public title: string;
   /*[Column("first_name")]*/
   public firstName: string;
   /*[Column("last_name")]*/
@@ -14,7 +15,6 @@ export class Constituent extends AuditedEntity {
   public middleName: string;
   /*[Column("suffix_id")]*/
   public suffixId: number;
-  public suffix: string;
   public nickName: string;
   /*[Column("addr1")]*/
   public address1: string;
@@ -24,12 +24,14 @@ export class Constituent extends AuditedEntity {
   public cityId: number;
   /*[Column("township_id")]*/
   public townshipId: number;
+  /*[Column("state_id")]*/
+  public stateId: number;
   /*[Column("state_cd")]*/
   public stateCd: string;
-  /*[Column("zip_code_id")]*/
+  /*[Column("zip_id")]*/
   public postalCodeId: number;
   /*[Column("zip_code")]*/
-  public postalCode: string;
+  private postalCode: string;
   /*[Column("federal_id")]*/
   public federalId: string;
   /*[Column("birth_date")]*/
@@ -38,26 +40,36 @@ export class Constituent extends AuditedEntity {
   public genderId: number;
   /*[Column("minority_id")]*/
   public minorityId: number;
+  public ethnicityId: number;    
   /*[Column("income_level_id")]*/
   public incomeLevelId: number;
+  /*[Column("preferred_language_id")]*/
+  public preferredLanguageId: number;
+  public maritalStatusId: number;
   /*[Column("maiden_name")]*/
   public maidenName: string;
   /*[Column("living_alone")]*/
-  public livingAlone: boolean;
+  public livingAlone: string;
   /*[Column("lives_in_nursing_home")]*/
-  public livesInNursingHome: boolean;
+  public livesInNursingHome: string;
   /*[Column("frail_disabled")]*/
-  public frailDisabled: boolean;
+  public frailDisabled: string;
   /*[Column("limited_english")]*/
-  public limitedEnglish: boolean;
+  public limitedEnglish: string;
   /*[Column("case_worker_risk")]*/
-  public caseWorkerRisk: boolean;
+  public caseWorkerRisk: string;
   /*[Column("homeless")]*/
-  public homeless: boolean;
+  public homeless: string;
   /*[Column("female_headed_household")]*/
-  public femaleHeadedHousehold: boolean;
+  public femaleHeadedHousehold: string;
   /*[Column("pet")]*/
-  public pet: boolean;
+  public pet: string;
+  /*[Column("eccpis_number")]*/
+  public eccpisNumber: string;
+  /*[Column("rin_number")]*/
+  public rinNumber: string;
+  /*[Column("grg_count")]*/
+  public grgCount: number;
 }
 
 /*[Table("contact")]*/

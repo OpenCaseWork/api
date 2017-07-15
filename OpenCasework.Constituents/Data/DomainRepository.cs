@@ -16,6 +16,12 @@ namespace OpenCaseWork.Constituents.Data
         Task<List<PostalCodeCity>> PostalCodeCities();
         Task<List<State>> States();
         Task<List<Township>> Townships();
+        Task<List<Ethnicity>> Ethnicities();
+        Task<List<Gender>> Genders();
+        Task<List<IncomeLevel>> IncomeLevels();
+        Task<List<Language>> Languages();
+        Task<List<MaritalStatus>> MaritalStatuses();
+        Task<List<Race>> Races();
     }
 
 
@@ -55,6 +61,7 @@ namespace OpenCaseWork.Constituents.Data
         public async Task<List<ContactType>> ContactTypes()
         {
             var query = from u in _context.ContactTypes
+                        where u.UISequence > 0
                         orderby u.Description
                         select u;
 
@@ -97,6 +104,62 @@ namespace OpenCaseWork.Constituents.Data
             return await query.ToListAsync();
         }
 
-         
+        public async Task<List<Ethnicity>> Ethnicities()
+        {
+            var query = from u in _context.Ethnicities
+                        orderby u.Description                       
+                        select u;
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<Gender>> Genders()
+        {
+            var query = from u in _context.Genders
+                        orderby u.Description
+                        select u;
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<IncomeLevel>> IncomeLevels()
+        {
+            var query = from u in _context.IncomeLevels
+                        orderby u.Description
+                        select u;
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<Language>> Languages()
+        {
+            var query = from u in _context.Languages
+                        orderby u.CodeText
+                        where u.Active == "Y"
+                        select u;
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<MaritalStatus>> MaritalStatuses()
+        {
+            var query = from u in _context.MaritalStatuses
+                        orderby u.MaritalType
+                        select u;
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<Race>> Races()
+        {
+            var query = from u in
+                            _context.Races
+                        orderby u.Type
+                        select u;
+
+            return await query.ToListAsync();
+        }
     }
+
 }
+
