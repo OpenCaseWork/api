@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace OpenCaseWork.Constituents.Controllers
 {
-    [Route("api/contact-events")]
+    [Route("api/contact-event-aggregates")]
     public class ContactEventsController
     {
     }

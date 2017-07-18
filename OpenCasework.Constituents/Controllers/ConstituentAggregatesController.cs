@@ -51,27 +51,7 @@ namespace OpenCaseWork.Constituents.Controllers
             {
                 constituent = await _repository.Update(constituent);
             }
-
-            //entity
-            /*Entity entity;
-            var settings = new JsonSerializerSettings
-            {
-                ContractResolver = new CamelCasePropertyNamesContractResolver()
-            };
-            if (aggregate.JsonEntityId <= 0)
-            {
-                entity = new Entity();
-                entity.SourceEntityId = constituent.ConstituentId;
-                entity.EntityTypeId = 1;
-                entity.Json = JsonConvert.SerializeObject(aggregate.JsonEntity, settings);
-                entity = await _entityRepo.Add(entity, _context.Entities);
-            }
-            else
-            {
-                entity = await _entityRepo.FindByID(aggregate.JsonEntityId, _context.Entities);
-                entity.Json = JsonConvert.SerializeObject(aggregate.JsonEntity, settings);
-                entity = await _entityRepo.Update(entity);
-            }*/
+          
 
             //contacts
             var contacts = aggregate.Contacts ?? new List<ConstituentContact>();
@@ -112,17 +92,20 @@ namespace OpenCaseWork.Constituents.Controllers
 
             var taskGetConstituent = _repository.FindByID(id, _context.Constituents);
             var taskGetContacts = _constituentRepository.GetContactsForConstituentId(id);
+            var taskGetQuestionnaires = _constituentRepository.GetQuestionnaires(id);
             //var taskGetEntity = _entityRepository.GetEntity(id, 1);
           
             var taskList = new List<Task>() {
                 taskGetConstituent,
-                taskGetContacts
+                taskGetContacts,
+                taskGetQuestionnaires,
             };
             await Task.WhenAll(taskList.ToArray());
 
             var response = new EntityResponse<ConstituentAggregate>();
             aggregate.Constituent = taskGetConstituent.Result;
             aggregate.Contacts = taskGetContacts.Result;
+            aggregate.Questionnaires = taskGetQuestionnaires.Result;
             //List<Entity> entities = taskGetEntity.Result;
             /*if (entities.Count > 0)
             {

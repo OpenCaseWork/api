@@ -5,6 +5,7 @@ using OpenCaseWork.Models.Constituents.Domains;
 using OpenCaseWork.Models.ContactEvents;
 using OpenCaseWork.Models.ContactEvents.Domains;
 using OpenCaseWork.Models.Entity;
+using OpenCaseWork.Models.Questionnaire;
 
 namespace OpenCaseWork.Constituents.Data
 {
@@ -33,6 +34,10 @@ namespace OpenCaseWork.Constituents.Data
         public DbSet<Language> Languages { get; set; }
         public DbSet<MaritalStatus> MaritalStatuses { get; set; }
         public DbSet<Race> Races { get; set; }
+        public DbSet<Provider> Providers { get; set; }
+        public DbSet<ClientQuestionnaire> Questionnaires { get; set; }
+        public DbSet<ClientQuestionnaireOther> QuestionnaireOthers { get; set; }
+        public DbSet<ClientQuestionnaire> QuestionnaireServices { get; set; }
 
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)

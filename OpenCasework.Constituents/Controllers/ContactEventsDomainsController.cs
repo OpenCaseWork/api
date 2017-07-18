@@ -34,8 +34,8 @@ namespace OpenCaseWork.Constituents.Controllers
         [HttpGet]
         public async Task<IActionResult> Domains()
         {
-          //  if (_loadedDomains != null)
-           //     return Ok(_loadedDomains);
+           if (_loadedDomains != null)
+               return Ok(_loadedDomains);
 
             var response = new BasePostResponse<ContactEventDomains>();
             ContactEventDomains record = new ContactEventDomains();

@@ -12,5 +12,7 @@ namespace OpenCaseWork.Models.Constituents
         public List<ConstituentContact> Contacts { get; set; }
         public ConstituentMaritalStatus Maritalstatus { get; set; }
         public ConstituentNote Note { get; set; }
+        public List<ConstituentQuestionnaire> Questionnaires { get; set; }
+
     }
 }

@@ -15,9 +15,8 @@ namespace OpenCaseWork.Constituents.Data
         Task<List<ConstituentSearchRecord>> Search(ConstituentSearchRequest constituent);
         Task<int> GetNextConstituentId();
         Task<List<ConstituentContact>> GetContactsForConstituentId(int constituentId);
-
-
-    }
+        Task<List<ConstituentQuestionnaire>> GetQuestionnaires(int constituentId);
+     }
 
     public class ConstituentRepository : IConstituentRepository
     {
@@ -46,6 +45,15 @@ namespace OpenCaseWork.Constituents.Data
 
             if (!String.IsNullOrEmpty(request.FirstName))
                 query = query.Where(u => u.FirstName.StartsWith(request.FirstName));
+
+            return await query.ToListAsync();
+        }
+
+        public async Task<List<ConstituentQuestionnaire>> GetQuestionnaires(int constituentId) {
+            var query = from u in _context.Questionnaires
+                        join p in _context.Providers on u.ProviderId equals p.Id
+                        where u.ConstituentId == constituentId
+                        select new ConstituentQuestionnaire { Id = u.Id, CreateDate = u.CreatedDate, ProviderNumber = p.ProviderNumber };
 
             return await query.ToListAsync();
         }
